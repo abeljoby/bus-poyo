@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import DirectionSelect from "./components/DirectionSelect.jsx"
 import UpcomingBuses from "./components/UpcomingBuses.jsx";
+import DepartedBuses from "./components/DepartedBuses.jsx";
 import './App.css';
 
 // https://jobymathew.net/bus/get-data.php
@@ -23,18 +24,15 @@ function App() {
   return (
     <div>
       <header>
-        <h1>Bus Vanno?</h1>
-        <h2>@ Palachuvadu Bus Stop</h2>
+        <h1 className="text-4xl font-bold">Bus Vanno?</h1>
+        <h2 className="text-xl">@ Palachuvadu Bus Stop</h2>
       </header>
       <main>
         <DirectionSelect direction={direction} setDirection={setDirection}/>
+        <h1 className="text-2xl font-semibold mt-6 mb-2">Upcoming Buses</h1>
         <UpcomingBuses data={filteredData} />
-        <h1>Departed Buses</h1>
-        <ul>
-          {data.map((row, idx) => (
-            <li key={idx}>{JSON.stringify(row)}</li>
-          ))}
-        </ul>
+        <h1 className="text-2xl font-semibold mt-6 mb-2">Departed Buses</h1>
+        <DepartedBuses data={data} />
       </main>
     </div>
   );

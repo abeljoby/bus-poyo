@@ -5,7 +5,7 @@ const DirectionSelect = ({ direction, setDirection }) => {
     return (
         <>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <h3>Select your direction:</h3>
+            <h3 className='text-xl'>Select your direction:</h3>
             <div style={{ display: 'flex', gap: '1rem' }}>
                 <button
                     style={{
@@ -39,8 +39,8 @@ const DirectionSelect = ({ direction, setDirection }) => {
                 </button>
             </div>
             {direction === "northbound" ?
-                <p>Northbound — Towards: Kannanchira, Njaliyakuzhi, Puthupally, Kottayam, Pala</p>:
-                <p>Southbound — Towards: Thengana, Cheeranchira, Chanaganassery, Thiruvalla</p>
+                <p className='text-lg'>Northbound — Towards: Kannanchira, Njaliyakuzhi, Puthupally, Kottayam, Pala</p>:
+                <p className='text-lg'>Southbound — Towards: Thengana, Cheeranchira, Chanaganassery, Thiruvalla</p>
             }
         </div>
         </>
