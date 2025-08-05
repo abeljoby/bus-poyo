@@ -1,5 +1,3 @@
-import React from 'react';
-
 import northImg from '../assets/northbound-stop.png';
 import southImg from '../assets/southbound-stop.png';
 
@@ -15,12 +13,12 @@ const DirectionSelect = ({ direction, setDirection }) => {
                         height: 300,
                         backgroundImage: `url(${northImg})`,
                         backgroundSize: 'cover',
-                        border: direction === 'North' ? '3px solid #007bff' : '1px solid #ccc',
+                        border: direction === 'northbound' ? '3px solid #007bff' : '1px solid #ccc',
                         borderRadius: 8,
                         cursor: 'pointer',
                     }}
-                    onClick={() => setDirection('North')}
-                    aria-pressed={direction === 'North'}
+                    onClick={() => setDirection('northbound')}
+                    aria-pressed={direction === 'northbound'}
                 >
                     <span style={{ display: 'none' }}>Northbound</span>
                 </button>
@@ -30,17 +28,17 @@ const DirectionSelect = ({ direction, setDirection }) => {
                         height: 300,
                         backgroundImage: `url(${southImg})`,
                         backgroundSize: 'cover',
-                        border: direction === 'South' ? '3px solid #007bff' : '1px solid #ccc',
+                        border: direction === 'southbound' ? '3px solid #007bff' : '1px solid #ccc',
                         borderRadius: 8,
                         cursor: 'pointer',
                     }}
-                    onClick={() => setDirection('South')}
-                    aria-pressed={direction === 'South'}
+                    onClick={() => setDirection('southbound')}
+                    aria-pressed={direction === 'southbound'}
                 >
                     <span style={{ display: 'none' }}>Southbound</span>
                 </button>
             </div>
-            {direction === "North" ?
+            {direction === "northbound" ?
                 <p>Northbound — Towards: Kannanchira, Njaliyakuzhi, Puthupally, Kottayam, Pala</p>:
                 <p>Southbound — Towards: Thengana, Cheeranchira, Chanaganassery, Thiruvalla</p>
             }
