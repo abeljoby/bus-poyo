@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import DirectionSelect from "./components/DirectionSelect.jsx"
-import BusCard from "./components/BusCard.jsx";
+import UpcomingBuses from "./components/UpcomingBuses.jsx";
+import './App.css';
 
 // https://jobymathew.net/bus/get-data.php
 
@@ -16,7 +17,7 @@ function App() {
       .catch((err) => console.error("Failed to fetch", err));
   }, []);
 
-  console.log(direction)
+  // console.log(direction);
   const filteredData = data.filter(row => row.direction === direction);
 
   return (
@@ -27,16 +28,7 @@ function App() {
       </header>
       <main>
         <DirectionSelect direction={direction} setDirection={setDirection}/>
-        <h1>Upcoming Buses</h1>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Route</th>
-          <th>ETA</th>
-        </tr>
-        {filteredData.map((row, idx) => (
-          <BusCard data={row} idx={idx}></BusCard>
-        ))}
+        <UpcomingBuses data={filteredData} />
         <h1>Departed Buses</h1>
         <ul>
           {data.map((row, idx) => (
