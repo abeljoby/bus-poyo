@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import DirectionSelect from "./components/DirectionSelect.jsx"
 
+// https://jobymathew.net/bus/get-data.php
+
+
 function App() {
   const [data, setData] = useState([]);
   const [direction, setDirection] = useState("North");
 
-  // useEffect(() => {
-  //   fetch("http://localhost/get-data.php")
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data))
-  //     .catch((err) => console.error("Failed to fetch", err));
-  // }, []);
+  useEffect(() => {
+    fetch("https://jobymathew.net/bus/get-data.php")
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err) => console.error("Failed to fetch", err));
+  }, []);
 
   return (
     <div>
