@@ -6,7 +6,7 @@ const UpcomingBuses = ({ data }) => {
     const now = new Date();
     const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
-    // Filter buses with ET within 30 minutes before or after now
+    // Filter buses with ET within 30 minutes before now or after now
     const filtered = data.filter((bus) => {
         // Assume bus.ET is in 'HH:mm' format
         if (!bus.ET) return false;
