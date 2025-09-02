@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import DirectionSelect from "./components/DirectionSelect.jsx"
+import DirectionSelect from "./components/DirectionSelect.jsx";
+import DirectionHeader from "./components/DirectionHeader.jsx";
 import UpcomingBuses from "./components/UpcomingBuses.jsx";
 import DepartedBuses from "./components/DepartedBuses.jsx";
-import LiveClock from "./components/LiveClock.jsx";
 import './App.css';
 
 // https://jobymathew.net/bus/get-data.php
@@ -30,13 +30,9 @@ function App() {
       </header>
       <main className="flex flex-col">
         <DirectionSelect direction={direction} setDirection={setDirection}/>
-        <div className="flex justify-end">
-          <LiveClock />
-        </div>
-        <h1 className="text-2xl font-semibold mt-6 mb-2">Upcoming Buses</h1>
+        <DirectionHeader direction={direction} setDirection={setDirection}/>
         <UpcomingBuses data={filteredData} />
-        <h1 className="text-2xl font-semibold mt-6 mb-2">Departed Buses</h1>
-        <DepartedBuses data={data} />
+        <DepartedBuses data={filteredData} />
       </main>
     </div>
   );
