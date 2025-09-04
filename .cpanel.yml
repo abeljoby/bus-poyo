@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/abel/public_html/bus/
-    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH
