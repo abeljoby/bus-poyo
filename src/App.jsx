@@ -13,7 +13,7 @@ function App() {
   const [direction, setDirection] = useState("northbound");
 
   useEffect(() => {
-    fetch("https://jobymathew.net/bus/get-data.php")
+    fetch("https://abel.ist/bus/get-data.php")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.error("Failed to fetch", err));
