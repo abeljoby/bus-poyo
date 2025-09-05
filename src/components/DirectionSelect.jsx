@@ -11,8 +11,8 @@ const DirectionSelect = ({ direction, setDirection }) => {
             <div style={{ display: 'flex', gap: '1rem' }}>
                 <button
                     style={{
-                        width: 200,
-                        height: 300,
+                        width: 180,
+                        height: 320,
                         backgroundImage: `url(${southImg})`,
                         backgroundSize: 'cover',
                         border: direction === 'southbound' ? '3px solid #007bff' : '1px solid #ccc',
@@ -26,8 +26,8 @@ const DirectionSelect = ({ direction, setDirection }) => {
                 </button>
                 <button
                     style={{
-                        width: 200,
-                        height: 300,
+                        width: 180,
+                        height: 320,
                         backgroundImage: `url(${northImg})`,
                         backgroundSize: 'cover',
                         border: direction === 'northbound' ? '3px solid #007bff' : '1px solid #ccc',
