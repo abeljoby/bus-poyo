@@ -22,7 +22,7 @@ const BusCard = ({ data }) => {
         const [h, m] = et.split(":").map(Number);
         if (isNaN(h) || isNaN(m)) return et;
         const hour12 = ((h + 11) % 12) + 1;
-        const ampm = h >= 12 ? "PM" : "AM";
+        const ampm = h >= 12 ? "pm" : "am";
         return `${hour12}:${m.toString().padStart(2, "0")} ${ampm}`;
     }
 
