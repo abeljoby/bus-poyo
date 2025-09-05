@@ -1,8 +1,11 @@
+
 import BusCard from "./BusCard";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBus, faClock, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faBus, faClock, faCheck, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 const DepartedBuses = ({ data }) => {
+  const [expand, setExpand] = useState(false);
   const now = new Date();
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
@@ -26,27 +29,41 @@ const DepartedBuses = ({ data }) => {
     return bMinutes - aMinutes;
   });
 
+  const busesToShow = expand ? sorted : sorted.slice(0, 5);
+
   return (
-  <div>
-    <div className="flex items-center space-x-4 text-red-600">
+    <div>
+      <div className="flex items-center space-x-4 text-red-600">
       <FontAwesomeIcon icon={faBus} />
       <FontAwesomeIcon icon={faCheck} />
       <h1 className="text-2xl font-semibold mt-6 mb-2">Departed Buses</h1>
-    </div>
-    <div className="grid grid-cols-3 gap-2 font-semibold text-gray-600 px-4 py-2">
-      <div>ETA</div>
+      </div>
+      <div className="grid grid-cols-3 gap-2 font-semibold text-gray-600 px-4 py-2">
+      <div>
+        <span>ETA</span>
+        <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-gray-500" />
+      </div>
       {/* <div>ID</div> */}
       <div>Bus Name</div>
       <div>Route</div>
       {/* <div>Arrival</div> */}
+      </div>
+      <div className="flex flex-col gap-2">
+      {busesToShow.map((row) => (
+        <BusCard data={row} key={row.id}></BusCard>
+      ))}
+      {sorted.length > 6 && (
+        <button
+        className="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-medium shadow-sm hover:bg-red-200 transition-colors mt-2 self-center cursor-pointer border-1 border-red-500"
+        onClick={() => setExpand((prev) => !prev)}
+        type="button"
+        >
+        {expand ? "Show less" : `Show all (${sorted.length})`}
+        </button>
+      )}
+      </div>
     </div>
-    <div className="flex flex-col gap-2">
-    {sorted.map((row) => (
-      <BusCard data={row} key={row.id}></BusCard>
-    ))}
-    </div>
-  </div>
-  )
+  );
 }
 
 export default DepartedBuses;

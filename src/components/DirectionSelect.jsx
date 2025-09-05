@@ -5,47 +5,52 @@ import southImg from '../assets/southbound_resize.jpg';
 
 const DirectionSelect = ({ direction, setDirection }) => {
     return (
-        <>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <h3 className='text-xl'>Select your direction:</h3>
-            <div style={{ display: 'flex', gap: '1rem' }}>
+        <div className="flex flex-col items-center gap-2">
+            <h3 className="text-xl font-bold">Select your direction:</h3>
+            <div className="flex gap-4">
                 <button
+                    className={`w-[180px] h-[320px] rounded-lg cursor-pointer border transition-all duration-150 ${
+                        direction === 'southbound'
+                            ? 'border-blue-600 ring-2 ring-blue-200'
+                            : 'border-gray-300'
+                    }`}
                     style={{
-                        width: 180,
-                        height: 320,
                         backgroundImage: `url(${southImg})`,
                         backgroundSize: 'cover',
-                        border: direction === 'southbound' ? '3px solid #007bff' : '1px solid #ccc',
-                        borderRadius: 8,
-                        cursor: 'pointer',
+                        backgroundPosition: 'center',
                     }}
                     onClick={() => setDirection('southbound')}
                     aria-pressed={direction === 'southbound'}
                 >
-                    <span style={{ display: 'none' }}>Southbound</span>
+                    <span className="sr-only">Southbound</span>
                 </button>
                 <button
+                    className={`w-[180px] h-[320px] rounded-lg cursor-pointer border transition-all duration-150 ${
+                        direction === 'northbound'
+                            ? 'border-blue-600 ring-2 ring-blue-200'
+                            : 'border-gray-300'
+                    }`}
                     style={{
-                        width: 180,
-                        height: 320,
                         backgroundImage: `url(${northImg})`,
                         backgroundSize: 'cover',
-                        border: direction === 'northbound' ? '3px solid #007bff' : '1px solid #ccc',
-                        borderRadius: 8,
-                        cursor: 'pointer',
+                        backgroundPosition: 'center',
                     }}
                     onClick={() => setDirection('northbound')}
                     aria-pressed={direction === 'northbound'}
                 >
-                    <span style={{ display: 'none' }}>Northbound</span>
+                    <span className="sr-only">Northbound</span>
                 </button>
             </div>
-            {direction === "northbound" ?
-                <p className='text-lg'>Northbound — Towards: Kannanchira, Njaliyakuzhi, Puthupally, Kottayam, Pala</p>:
-                <p className='text-lg'>Southbound — Towards: Thengana, Cheeranchira, Chanaganassery, Thiruvalla</p>
-            }
+            {direction === "northbound" ? (
+                <p className="text-lg font-bold">
+                    Northbound — Towards: Kannanchira, Njaliyakuzhi, Puthupally, Kottayam, Pala
+                </p>
+            ) : (
+                <p className="text-lg font-bold">
+                    Southbound — Towards: Thengana, Cheeranchira, Chanaganassery, Thiruvalla
+                </p>
+            )}
         </div>
-        </>
     );
 };
 
