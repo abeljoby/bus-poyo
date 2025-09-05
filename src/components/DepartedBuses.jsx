@@ -14,6 +14,16 @@ const DepartedBuses = ({ data }) => {
     return (busMinutes - nowMinutes) < -30;
   });
 
+  // Sort filtered buses by descending ET (latest time first)
+  const sorted = [...filtered].sort((a, b) => {
+    if (!a.ET || !b.ET) return 0;
+    const [ah, am] = a.ET.split(":").map(Number);
+    const [bh, bm] = b.ET.split(":").map(Number);
+    const aMinutes = ah * 60 + am;
+    const bMinutes = bh * 60 + bm;
+    return bMinutes - aMinutes;
+  });
+
   return <>
     <h1 className="text-2xl font-semibold mt-6 mb-2">Departed Buses</h1>
     <div className="grid grid-cols-3 gap-2 font-semibold text-gray-600 px-4 py-2">
@@ -24,7 +34,7 @@ const DepartedBuses = ({ data }) => {
       {/* <div>Arrival</div> */}
     </div>
     <div className="flex flex-col gap-2">
-    {filtered.map((row) => (
+    {sorted.map((row) => (
       <BusCard data={row} key={row.id}></BusCard>
     ))}
     </div>

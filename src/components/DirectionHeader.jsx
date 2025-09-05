@@ -5,7 +5,7 @@ const DirectionHeader = ({ direction, setDirection }) => {
         <>
         <div className="flex justify-between sticky top-0 bg-white">
             <span>Your current direction: {direction}</span>
-            <LiveClock />
+            {/* <LiveClock /> */}
         </div>
         </>
     )
