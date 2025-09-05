@@ -27,8 +27,13 @@ const BusCard = ({ data }) => {
     }
 
     const cardClass =
-        "grid grid-cols-3 gap-2 items-center p-4 shadow-md rounded-lg border " +
+        "grid grid-cols-3 gap-2 items-center p-4 shadow-md rounded-lg border transition-opacity duration-700 opacity-0 animate-fadein " +
         (isToday && atPassed ? "bg-green-200" : "bg-white");
+
+    // Add fade-in animation via CSS
+    // Place this in your global CSS or in a <style> tag if using CSS-in-JS
+    // .animate-fadein { animation: fadein 0.7s forwards; }
+    // @keyframes fadein { to { opacity: 1; } }
 
     return <div className={cardClass}>
         <div>{formatET(data.ET)}</div>

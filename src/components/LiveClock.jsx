@@ -14,7 +14,7 @@ function LiveClock() {
   }, []);
 
   return (
-    <div style={{ fontSize: '1.5rem', fontFamily: 'monospace' }}>
+    <div style={{ fontSize: '1.5rem', fontFamily: 'Roboto, Arial, sans-serif', letterSpacing: '0.05em' }}>
       {time.toLocaleTimeString()}
     </div>
   );

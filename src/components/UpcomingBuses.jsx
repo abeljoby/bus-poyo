@@ -1,5 +1,7 @@
 import BusCard from "./BusCard";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBus, faClock, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const UpcomingBuses = ({ data }) => {
     const [expand, setExpand] = useState(false);
@@ -20,31 +22,33 @@ const UpcomingBuses = ({ data }) => {
     const busesToShow = expand ? filtered : filtered.slice(0, 5);
 
     return (
-      <>
-          <div className="flex items-center mt-6 mb-2">
-              <h1 className="text-2xl font-semibold mr-4">Upcoming Buses</h1>
-          </div>
-          <div className="grid grid-cols-3 gap-2 font-semibold text-gray-600 px-4 py-2">
+        <div>
+            <div className="flex items-center space-x-4 text-blue-600">
+                <FontAwesomeIcon icon={faBus} />
+                <FontAwesomeIcon icon={faClock} />
+                <h1 className="text-2xl font-semibold mt-6 mb-2">Upcoming Buses</h1>
+            </div>
+            <div className="grid grid-cols-3 gap-2 font-semibold text-gray-600 px-4 py-2">
               <div>ETA</div>
               {/* <div>ID</div> */}
               <div>Bus Name</div>
               <div>Route</div>
               {/* <div>Arrival</div> */}
-          </div>
-          <div className="flex flex-col gap-2">
-              {busesToShow.map((bus) => (
-                  <BusCard data={bus} key={bus.id}></BusCard>
-              ))}
-              {filtered.length > 5 && (
-                  <button
-                      className="text-blue-600 underline text-sm cursor-pointer"
-                      onClick={() => setExpand((prev) => !prev)}
-                  >
-                      {expand ? "Show less" : `Show all (${filtered.length})`}
-                  </button>
-              )}
-          </div>
-      </>
+            </div>
+            <div className="flex flex-col gap-2">
+                {busesToShow.map((bus) => (
+                    <BusCard data={bus} key={bus.id}></BusCard>
+                ))}
+                {filtered.length > 5 && (
+                    <button
+                        className="text-blue-600 underline text-sm cursor-pointer"
+                        onClick={() => setExpand((prev) => !prev)}
+                    >
+                        {expand ? "Show less" : `Show all (${filtered.length})`}
+                    </button>
+                )}
+            </div>
+        </div>
     );
 }
 

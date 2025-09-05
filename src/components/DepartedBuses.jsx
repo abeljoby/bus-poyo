@@ -1,4 +1,6 @@
 import BusCard from "./BusCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBus, faClock, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const DepartedBuses = ({ data }) => {
   const now = new Date();
@@ -24,8 +26,13 @@ const DepartedBuses = ({ data }) => {
     return bMinutes - aMinutes;
   });
 
-  return <>
-    <h1 className="text-2xl font-semibold mt-6 mb-2">Departed Buses</h1>
+  return (
+  <div>
+    <div className="flex items-center space-x-4 text-red-600">
+      <FontAwesomeIcon icon={faBus} />
+      <FontAwesomeIcon icon={faCheck} />
+      <h1 className="text-2xl font-semibold mt-6 mb-2">Departed Buses</h1>
+    </div>
     <div className="grid grid-cols-3 gap-2 font-semibold text-gray-600 px-4 py-2">
       <div>ETA</div>
       {/* <div>ID</div> */}
@@ -38,7 +45,8 @@ const DepartedBuses = ({ data }) => {
       <BusCard data={row} key={row.id}></BusCard>
     ))}
     </div>
-  </>
+  </div>
+  )
 }
 
 export default DepartedBuses;

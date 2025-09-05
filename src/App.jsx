@@ -24,7 +24,7 @@ function App() {
   const filteredData = data.filter(row => row.direction === direction);
 
   return (
-    <div>
+    <div className="py-2 px-2">
       <header className="flex justify-between">
         <div>
           <h1 className="text-4xl font-bold">Bus Vanno?</h1>
@@ -32,7 +32,7 @@ function App() {
         </div>
         <LiveClock />
       </header>
-      <main className="flex flex-col">
+      <main className="flex flex-col gap-4">
         <DirectionSelect direction={direction} setDirection={setDirection}/>
         {/* <DirectionHeader direction={direction} setDirection={setDirection}/> */}
         <UpcomingBuses data={filteredData} />
