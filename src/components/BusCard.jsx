@@ -27,15 +27,15 @@ const BusCard = ({ data }) => {
     }
 
     const cardClass =
-        "grid grid-cols-5 gap-2 items-center p-4 shadow-md rounded-lg border " +
+        "grid grid-cols-3 gap-2 items-center p-4 shadow-md rounded-lg border " +
         (isToday && atPassed ? "bg-green-200" : "bg-white");
 
     return <div className={cardClass}>
         <div>{formatET(data.ET)}</div>
-        <div>{data.id}</div>
+        {/* <div>{data.id}</div> */}
         <div>{data.name}</div>
         <div>{data.description}</div>
-        <div>{data.last_updated}</div>
+        {/* <div>{data.last_updated}</div> */}
     </div>
 }
 

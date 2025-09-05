@@ -24,12 +24,12 @@ const UpcomingBuses = ({ data }) => {
           <div className="flex items-center mt-6 mb-2">
               <h1 className="text-2xl font-semibold mr-4">Upcoming Buses</h1>
           </div>
-          <div className="grid grid-cols-5 gap-2 font-semibold text-gray-600 px-4 py-2">
+          <div className="grid grid-cols-3 gap-2 font-semibold text-gray-600 px-4 py-2">
               <div>ETA</div>
-              <div>ID</div>
+              {/* <div>ID</div> */}
               <div>Bus Name</div>
               <div>Route</div>
-              <div>Arrival</div>
+              {/* <div>Arrival</div> */}
           </div>
           <div className="flex flex-col gap-2">
               {busesToShow.map((bus) => (

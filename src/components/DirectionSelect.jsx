@@ -1,5 +1,7 @@
-import northImg from '../assets/northbound-stop.png';
-import southImg from '../assets/southbound-stop.png';
+// import northImg from '../assets/northbound-stop.png';
+import northImg from '../assets/northbound_resize.jpg';
+// import southImg from '../assets/southbound-stop.png';
+import southImg from '../assets/southbound_resize.jpg';
 
 const DirectionSelect = ({ direction, setDirection }) => {
     return (
@@ -9,22 +11,7 @@ const DirectionSelect = ({ direction, setDirection }) => {
             <div style={{ display: 'flex', gap: '1rem' }}>
                 <button
                     style={{
-                        width: 600,
-                        height: 300,
-                        backgroundImage: `url(${northImg})`,
-                        backgroundSize: 'cover',
-                        border: direction === 'northbound' ? '3px solid #007bff' : '1px solid #ccc',
-                        borderRadius: 8,
-                        cursor: 'pointer',
-                    }}
-                    onClick={() => setDirection('northbound')}
-                    aria-pressed={direction === 'northbound'}
-                >
-                    <span style={{ display: 'none' }}>Northbound</span>
-                </button>
-                <button
-                    style={{
-                        width: 600,
+                        width: 200,
                         height: 300,
                         backgroundImage: `url(${southImg})`,
                         backgroundSize: 'cover',
@@ -36,6 +23,21 @@ const DirectionSelect = ({ direction, setDirection }) => {
                     aria-pressed={direction === 'southbound'}
                 >
                     <span style={{ display: 'none' }}>Southbound</span>
+                </button>
+                <button
+                    style={{
+                        width: 200,
+                        height: 300,
+                        backgroundImage: `url(${northImg})`,
+                        backgroundSize: 'cover',
+                        border: direction === 'northbound' ? '3px solid #007bff' : '1px solid #ccc',
+                        borderRadius: 8,
+                        cursor: 'pointer',
+                    }}
+                    onClick={() => setDirection('northbound')}
+                    aria-pressed={direction === 'northbound'}
+                >
+                    <span style={{ display: 'none' }}>Northbound</span>
                 </button>
             </div>
             {direction === "northbound" ?
