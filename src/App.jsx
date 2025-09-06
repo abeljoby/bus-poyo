@@ -27,7 +27,7 @@ function App() {
     <div className="py-2 px-2">
       <header className="flex justify-between items-center">
         <div>
-          <h1 className="text-4xl font-bold">Bus Vanno?</h1>
+          <h1 className="text-4xl font-bold">Bus Poyo?</h1>
           <h2 className="text-xl">@ Palachuvadu Bus Stop</h2>
         </div>
         <LiveClock />
