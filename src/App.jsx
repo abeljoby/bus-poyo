@@ -5,6 +5,7 @@ import UpcomingBuses from "./components/UpcomingBuses.jsx";
 import DepartedBuses from "./components/DepartedBuses.jsx";
 import LiveClock from "./components/LiveClock.jsx";
 import './App.css';
+import BusLegend from "./components/BusLegend.jsx";
 
 // https://jobymathew.net/bus/get-data.php
 
@@ -35,6 +36,7 @@ function App() {
       <main className="flex flex-col gap-4">
         <DirectionSelect direction={direction} setDirection={setDirection}/>
         {/* <DirectionHeader direction={direction} setDirection={setDirection}/> */}
+        <BusLegend />
         <UpcomingBuses data={filteredData} />
         <DepartedBuses data={filteredData} />
       </main>
