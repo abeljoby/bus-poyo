@@ -26,7 +26,7 @@ const UpcomingBuses = ({ data }) => {
             <div className="flex items-center space-x-4 text-blue-600">
                 <FontAwesomeIcon icon={faBus} />
                 <FontAwesomeIcon icon={faClock} />
-                <h1 className="text-2xl font-semibold mt-6 mb-2">Upcoming Buses</h1>
+                <h1 className="font-semibold mt-6 mb-2">Upcoming Buses</h1>
             </div>
             <div className="grid grid-cols-3 gap-2 font-semibold text-gray-600 px-4 py-2">
               <div><span>ETA</span><FontAwesomeIcon icon={faArrowUp} className="ml-1 text-gray-500" /></div>

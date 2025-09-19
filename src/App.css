@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+body {
+  font-size: 1rem; /* 16px base */
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 2rem; /* 32px */
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+}
+
+button, input, select {
+  font-size: 1rem;
+}
+
 .animate-fadein {
   animation: fadein 0.6s forwards;
 }

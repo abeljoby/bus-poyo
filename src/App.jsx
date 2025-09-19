@@ -9,10 +9,10 @@ import BusLegend from "./components/BusLegend.jsx";
 
 // https://jobymathew.net/bus/get-data.php
 
-
 function App() {
   const [data, setData] = useState([]);
   const [direction, setDirection] = useState("northbound");
+  const [showScroll, setShowScroll] = useState(false); // <-- Add this
 
   useEffect(() => {
     fetch("https://abel.ist/bus/get-data.php")
@@ -21,7 +21,19 @@ function App() {
       .catch((err) => console.error("Failed to fetch", err));
   }, []);
 
-  // console.log(direction);
+  // Show button after scrolling 200px
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const filteredData = data.filter(row => row.direction === direction);
 
   return (
@@ -36,10 +48,19 @@ function App() {
       <main className="flex flex-col gap-4">
         <DirectionSelect direction={direction} setDirection={setDirection}/>
         {/* <DirectionHeader direction={direction} setDirection={setDirection}/> */}
-        <BusLegend />
+        {/* <BusLegend /> */}
         <UpcomingBuses data={filteredData} />
         <DepartedBuses data={filteredData} />
       </main>
+      {showScroll && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-blue-600 text-white px-4 pb-3 pt-2 rounded-full shadow-lg hover:bg-blue-700 cursor-pointer transition"
+          aria-label="Scroll to top"
+        >
+          ↑ Back to Top
+        </button>
+      )}
     </div>
   );
 }
